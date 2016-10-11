@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd /var/git
+env -i git reset --hard
+mkdir -p content
+hugo -d /var/www

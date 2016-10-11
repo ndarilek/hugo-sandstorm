@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1 Hugo
+  iframe(src = "/publicId" style = "width: 100%; margin: 0; border: 0;")
+  p To check out the Git repository containing your site, first add an authorization key to Git:
+  iframe#gitAuthorize(style = "width: 100%; height: 55px; margin: 0; border: 0;")
+  p Then run the following:
+  iframe#gitClone(style = "width: 100%; height: 55px; margin: 0; border: 0;")
+  script.
+    document.addEventListener("DOMContentLoaded", function() {
+      window.parent.postMessage({renderTemplate: {
+        rpcId: "gitAuthorize",
+        template: "echo url=" + window.location.protocol + "//git:$API_TOKEN@$API_HOST | git -c credential.helper=store credential approve"
+      }}, "*")
+      window.parent.postMessage({renderTemplate: {
+        rpcId: "gitClone",
+        template: "git clone -c credential.helper=store " + window.location.protocol + "//git@$API_HOST/git site"
+      }}, "*")
+    })
+    window.addEventListener("message", function(event) {
+      if(event.data.error)
+        console.log(error)
+      else {
+        var el = document.getElementById(event.data.rpcId)
+        el.setAttribute("src", event.data.uri)
+      }
+    })
