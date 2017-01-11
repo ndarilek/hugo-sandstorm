@@ -55,6 +55,7 @@ cp /opt/app/sandstorm-integration/bin/getPublicId /usr/local/bin
 
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 apt-get install -y nodejs
+npm install -g yarn
 
 apt-get install -y python-pip
 pip install pygments
