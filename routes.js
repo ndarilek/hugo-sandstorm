@@ -1,5 +1,6 @@
 var exec = require("child_process").exec,
   express = require('express'),
+  httpProxy = require("http-proxy"),
   router = express.Router(),
   gitBackend = require("git-http-backend"),
   spawn = require("child_process").spawn
@@ -31,5 +32,12 @@ router.use("/git", (req, res) => {
     ps.stdout.pipe(service.createStream()).pipe(ps.stdin)
   })).pipe(res)
 })
+
+var proxy = httpProxy.createProxyServer({
+  target: "http://127.0.0.1:8001/admin/",
+  changeOrigin: true
+})
+
+router.use("/admin/", (req, res) => proxy.web(req, res))
 
 module.exports = router

@@ -56,7 +56,15 @@ cp /opt/app/sandstorm-integration/bin/getPublicId /usr/local/bin
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 apt-get install -y nodejs
 
+apt-get install -y python-pip
+pip install pygments
+
 cd /tmp
-wget https://github.com/spf13/hugo/releases/download/v0.17/hugo_0.17-64bit.deb -O hugo.deb
+wget https://github.com/spf13/hugo/releases/download/v0.18.1/hugo_0.18.1-64bit.deb -O hugo.deb
 dpkg -i hugo.deb
 rm hugo.deb
+wget "https://caddyserver.com/download/build?os=linux&arch=amd64&features=filemanager%2Chugo" -O /tmp/caddy.tar.gz
+cd /tmp
+tar xfz caddy.tar.gz
+mv caddy /usr/local/bin
+rm caddy.tar.gz
