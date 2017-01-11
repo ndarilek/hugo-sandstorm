@@ -57,7 +57,7 @@ curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
 apt-get install -y nodejs
 npm install -g yarn
 
-apt-get install -y python-pip
+apt-get install -y python-pip asciidoctor
 pip install pygments
 
 cd /tmp
