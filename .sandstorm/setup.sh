@@ -53,7 +53,7 @@ fi
 
 cp /opt/app/sandstorm-integration/bin/getPublicId /usr/local/bin
 
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
 apt-get install -y nodejs
 npm install -g yarn
 
