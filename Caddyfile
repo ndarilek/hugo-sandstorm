@@ -3,4 +3,5 @@ errors stderr
 log stdout
 hugo /var/git {
   allow_commands false
+  after_save "/opt/app/commit-on-save {path}"
 }

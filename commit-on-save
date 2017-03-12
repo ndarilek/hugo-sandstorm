@@ -1,0 +1,5 @@
+#!/bin/sh
+cd /var/git
+git add $1
+git commit $1 -m "Saved $1 via administrative interface."
+/var/git/.git/hooks/post-receive
