@@ -61,7 +61,7 @@ apt-get install -y python-pip asciidoctor
 pip install pygments
 
 cd /tmp
-wget https://github.com/spf13/hugo/releases/download/v0.18.1/hugo_0.18.1-64bit.deb -O hugo.deb
+wget https://github.com/spf13/hugo/releases/download/v0.19/hugo_0.19-64bit.deb -O hugo.deb
 dpkg -i hugo.deb
 rm hugo.deb
 wget "https://caddyserver.com/download/build?os=linux&arch=amd64&features=filemanager%2Chugo" -O /tmp/caddy.tar.gz
