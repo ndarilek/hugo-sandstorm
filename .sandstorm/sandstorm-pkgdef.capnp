@@ -48,10 +48,10 @@ const pkgdef :Spk.PackageDefinition = (
       # https://github.com/sandstorm-io/sandstorm/blob/master/src/sandstorm/package.capnp
       icons = (
         # Various icons to represent the app in various contexts.
-        #appGrid = (svg = embed "path/to/appgrid-128x128.svg"),
-        #grain = (svg = embed "path/to/grain-24x24.svg"),
-        #market = (svg = embed "path/to/market-150x150.svg"),
-        #marketBig = (svg = embed "path/to/market-big-300x300.svg"),
+        appGrid = (png = (dpi1x = embed "app-graphics/appgrid-128x128.png")),
+        grain = (png = (dpi1x = embed "app-graphics/grain-24x24.png")),
+        market = (png = (dpi1x = embed "app-graphics/market-150x150.png")),
+        marketBig = (png = (dpi1x = embed "app-graphics/market-big-300x300.png")),
       ),
 
       website = "https://gohugo.io",
@@ -123,9 +123,8 @@ const pkgdef :Spk.PackageDefinition = (
         # Screenshots to use for marketing purposes.  Examples below.
         # Sizes are given in device-independent pixels, so if you took these
         # screenshots on a Retina-style high DPI screen, divide each dimension by two.
-
-        (width = 1280, height = 773, png = embed "screenshot1.png"),
-        (width = 1280, height = 773, png = embed "screenshot2.png"),
+        (width = 1366, height = 672, png = embed "app-graphics/screenshot1.png"),
+        (width = 1366, height = 672, png = embed "app-graphics/screenshot2.png"),
       ],
       changeLog = (defaultText = embed "changelog.md"),
       # Documents the history of changes in Github-flavored markdown format (with the same restrictions
