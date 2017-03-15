@@ -3,7 +3,7 @@ set -euo pipefail
 
 if [ ! -e /var/git ]; then
   cd /var
-  hugo new site git
+  cp -R /opt/app/template git
   cd git
   git init
   git add *
