@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+table {
+  text-align: left;
+}
+
+td {
+  padding 0 10 0 10;
+}
