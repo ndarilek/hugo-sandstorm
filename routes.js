@@ -5,9 +5,7 @@ var exec = require("child_process").exec,
   gitBackend = require("git-http-backend"),
   spawn = require("child_process").spawn
 
-router.get('/', (req, res) => res.render("index"));
-
-router.get("/publicId", (req, res) => {
+router.get('/', (req, res) => {
   const sessionId = req.headers["x-sandstorm-session-id"]
   exec(`getPublicId ${sessionId}`, (err, rv) => {
     if(err)
@@ -18,7 +16,7 @@ router.get("/publicId", (req, res) => {
     const domain = publicId+"."+hostname
     const url = lines[2]
     const isDemo = lines[3] == "true"
-    res.render("publicId", {domain, isDemo, publicId, url})
+    res.render("index", {domain, isDemo, publicId, url})
   })
 })
 
