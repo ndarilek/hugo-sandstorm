@@ -63,7 +63,7 @@
     computed: {
       gitHost: () => {
         if(process.BROWSER_BUILD)
-          return window.location.protocol+"//git@$API_HOST"
+          return window.location.protocol+"//git:$API_TOKEN@$API_HOST"
         else
           return ""
       },
