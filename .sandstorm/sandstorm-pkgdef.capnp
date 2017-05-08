@@ -19,9 +19,9 @@ const pkgdef :Spk.PackageDefinition = (
 
     appTitle = (defaultText = "Hugo"),
 
-    appVersion = 1,  # Increment this for every release.
+    appVersion = 3,  # Increment this for every release.
 
-    appMarketingVersion = (defaultText = "0.19-sandstorm1"),
+    appMarketingVersion = (defaultText = "0.20.7-sandstorm3"),
     # Human-readable representation of appVersion. Should match the way you
     # identify versions of your app in documentation and marketing.
 
@@ -156,6 +156,7 @@ const pkgdef :Spk.PackageDefinition = (
   # You should review it later, before shipping your app.
 
   alwaysInclude = [
+    "opt/app/node_modules/json-loader",
     "usr/lib/python2.7/dist-packages/pygments"
   ],
   # Fill this list with more names of files or directories that should be

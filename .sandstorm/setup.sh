@@ -16,14 +16,12 @@ apt-get install -y git
 if [ ! -e /usr/local/bin/capnp ] ; then
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -q clang autoconf pkg-config libtool
     cd /tmp
-    if [ ! -e capnproto ]; then git clone https://github.com/sandstorm-io/capnproto; fi
-    cd capnproto
-    git checkout master
-    cd c++
-    autoreconf -i
+    curl -O https://capnproto.org/capnproto-c++-0.6.0.tar.gz
+    tar zxf capnproto-c++-0.6.0.tar.gz
+    cd capnproto-c++-0.6.0
     ./configure
-    make -j2
-    sudo make install
+    make -j6 check
+    make install
 fi
 
 ### Download & compile capnproto and the Sandstorm getPublicId helper.
@@ -61,9 +59,14 @@ apt-get install -y python-pip asciidoctor
 pip install pygments
 
 cd /tmp
-wget https://github.com/spf13/hugo/releases/download/v0.19/hugo_0.19-64bit.deb -O hugo.deb
+wget https://github.com/spf13/hugo/releases/download/v0.20/hugo_0.20.7-64bit.deb -O hugo.deb
 dpkg -i hugo.deb
 rm hugo.deb
+# cd /tmp
+# wget https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz -O go.tar.gz
+# tar xfz go.tar.gz
+# mv go /usr/local
+# rm go.tar.gz
 wget "https://caddyserver.com/download/build?os=linux&arch=amd64&features=filemanager%2Chugo" -O /tmp/caddy.tar.gz
 cd /tmp
 tar xfz caddy.tar.gz
